@@ -11,6 +11,17 @@ const dataSourceConfig = (): DataSourceOptions => {
 
     const dbUrl: string | undefined = process.env.DATABASE_URL
 
+    const nodeEnv: string | undefined = process.env.NODE_ENV
+
+    if(nodeEnv === "test"){
+        return{
+            type: 'sqlite',
+            database: ':memory',
+            synchronize: true,
+            entities: [entitiesPath]
+        }
+    }
+
     if(!dbUrl){
         throw new Error("Env var DATABASE_URL does not exists!")
     }
