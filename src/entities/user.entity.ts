@@ -10,7 +10,7 @@ class Movies{
     @PrimaryGeneratedColumn('increment')
     id: number
 
-    @Column()
+    @Column({ length: 50, unique: true })
     name: string
 
     @Column()
