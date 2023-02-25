@@ -13,8 +13,6 @@ const createMovieService = async (payload: IMoviesRequest): Promise<IMoviesResul
 
     await movieRepository.save(movie)
 
-    await movieRepository.save(movie)
-
     const newMovie = moviesResultSchemas.parse(movie)
 
     return newMovie
