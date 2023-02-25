@@ -7,14 +7,14 @@ import {
 @Entity('movies')
 class Movies{
 
-    @PrimaryGeneratedColumn('increment')
+    @PrimaryGeneratedColumn()
     id: number
 
     @Column({ length: 50, unique: true })
     name: string
 
-    @Column()
-    description: string
+    @Column({ type: 'text', nullable: true })
+    description?: string | undefined |  null
 
     @Column()
     duration: number
