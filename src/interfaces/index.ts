@@ -1,9 +1,11 @@
 import {
     IMoviesRequest,
-    IMoviesResult
+    IMoviesResult,
+    MoviesArray
 } from './movies.interfaces'
 
 export {
     IMoviesRequest,
-    IMoviesResult
+    IMoviesResult,
+    MoviesArray
 }
