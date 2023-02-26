@@ -20,8 +20,8 @@ const dataSourceConfig = (): DataSourceOptions => {
         url: process.env.DATABASE_URL!,
         synchronize: false,
         logging: true,
-        migrations: [entitiesPath],
-        entities: [migrationsPath]
+        migrations: [migrationsPath],
+        entities: [entitiesPath]
     }
 }
 
