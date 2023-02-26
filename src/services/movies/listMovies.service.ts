@@ -1,14 +1,16 @@
-import { IMoviesRequest, IMoviesResult, MoviesArray } from "../../interfaces";
 import { AppDataSource } from '../../data-source'
 import { Movies } from "../../entities";
 import { Repository } from "typeorm";
-import { moviesResultSchemas } from "../../schemas";
+import { MoviesArray } from '../../interfaces';
+import { moveisListResult } from '../../schemas';
 
-const listMoviesService = async (payload: IMoviesRequest): Promise<any> => {
+const listMoviesService = async (): Promise<MoviesArray> => {
 
     const movieRepository: Repository<Movies> = AppDataSource.getRepository(Movies)
 
-    const movies = movieRepository.find()
+    const findMovies = await movieRepository.find()
+
+    const movies = moveisListResult.parse(findMovies)
 
     return movies
 } 
