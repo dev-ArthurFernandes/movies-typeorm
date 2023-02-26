@@ -1,11 +1,13 @@
 import {
     createMoviesSchemas,
     updateMoviesSchemas,
-    moviesResultSchemas
-} from "./createMovie.schema";
+    moviesResultSchemas,
+    moveisListResult
+} from "./movies.schema";
 
 export {
     createMoviesSchemas,
     updateMoviesSchemas,
-    moviesResultSchemas
+    moviesResultSchemas,
+    moveisListResult
 }

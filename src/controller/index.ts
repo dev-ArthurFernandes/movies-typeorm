@@ -1,6 +1,10 @@
-import createMovieController from './movies.controller';
+import {    
+    createMovieController,
+    listMoviesController
+} from './movies.controller';
 
 
 export {
-    createMovieController
+    createMovieController,
+    listMoviesController
 }

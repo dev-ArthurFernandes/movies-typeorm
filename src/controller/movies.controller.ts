@@ -1,6 +1,6 @@
 import { Request, Response  } from "express";
 import { IMoviesRequest, IMoviesResult } from "../interfaces";
-import { createMovieService } from "../services";
+import { createMovieService, listMoviesService } from "../services";
 
 const createMovieController = async (req: Request, res: Response): Promise<Response> => {
 
@@ -11,4 +11,14 @@ const createMovieController = async (req: Request, res: Response): Promise<Respo
     return res.status(201).json(newMovie)
 }
 
-export default createMovieController
+const listMoviesController =async (req:Request, res: Response): Promise<Response> => {
+    
+    const movies = await listMoviesService()
+
+    return res.status(200).json(movies)
+}
+
+export {
+    createMovieController,
+    listMoviesController
+}
