@@ -1,16 +1,15 @@
 import { NextFunction, Response, Request } from "express";
-import { DEFAULT_ECDH_CURVE } from "tls";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Movies } from "../entities";
 import { AppError } from "../errors";
 
 
-const validateMovieName =async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+const validateMovieName =async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     
     const moviesRepository: Repository<Movies> = AppDataSource.getRepository(Movies)
 
-    const findName = await moviesRepository.findOne({
+    const findName = await moviesRepository.exist({
         where: {
             name: req.body?.name
         }

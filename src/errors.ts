@@ -3,14 +3,15 @@ import { ZodError } from 'zod';
 
 class AppError extends Error {
     statusCode: number
-
+    message: string
     constructor(message: string, statusCode: number = 400){
-        super(message)
+        super()
+        this.message = message
         this.statusCode = statusCode
     }   
 }
 
-const handleError = (err: any, req: Request, res: Response, next: NextFunction) => {
+const handleError = (err: Error, req: Request, res: Response, next: NextFunction): Response => {
 
     if(err instanceof AppError){
         return res.status(err.statusCode).json({
