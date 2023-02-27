@@ -1,10 +1,14 @@
 import {    
     createMovieController,
-    listMoviesController
+    listMoviesController,
+    updateMovieController,
+    deleteMovieController
 } from './movies.controller';
 
 
 export {
     createMovieController,
-    listMoviesController
+    listMoviesController,
+    updateMovieController,
+    deleteMovieController
 }

@@ -1,8 +1,10 @@
 import { createMoviesSchemas, moviesResultSchemas,moveisListResult, updateMoviesSchemas } from '../schemas';
 import { z } from 'zod'
+import { DeepPartial } from 'typeorm';
 
+type IMovie = z.infer<typeof moviesResultSchemas>
 type IMoviesRequest = z.infer<typeof createMoviesSchemas>
-type IMoviesUpdateRequest = z.infer<typeof updateMoviesSchemas>
+type IMoviesUpdateRequest = DeepPartial<IMovie>
 type IMoviesResult = z.infer<typeof moviesResultSchemas>
 type MoviesArray = z.infer<typeof moveisListResult>
 

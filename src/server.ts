@@ -5,6 +5,7 @@ const PORT: number= 3000
 
 AppDataSource.initialize().then(() => {
     console.log("Database connected!")
+    
     app.listen(PORT, () => {
         console.log(`Server is running on https://localhost:${PORT}`)
     })
