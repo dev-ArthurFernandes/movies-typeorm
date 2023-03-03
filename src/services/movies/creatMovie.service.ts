@@ -1,13 +1,13 @@
 import { IMoviesRequest, IMoviesResult } from "../../interfaces";
 import { AppDataSource } from '../../data-source'
-import { Movies } from "../../entities";
+import { Movie } from "../../entities";
 import { Repository } from "typeorm";
 import { moviesResultSchemas } from "../../schemas";
 
 
 const createMovieService = async (payload: IMoviesRequest): Promise<IMoviesResult> => {
 
-    const movieRepository: Repository<Movies> = AppDataSource.getRepository(Movies)
+    const movieRepository: Repository<Movie> = AppDataSource.getRepository(Movie)
 
     const movie = movieRepository.create(payload)
 

@@ -8,6 +8,8 @@ const ensureEntreisValues = (schema: ZodTypeAny) => (req: Request, res: Response
 
     req.body = validation
     
+    console.log(req.body)
+
     return next()
 }
 

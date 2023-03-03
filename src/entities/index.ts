@@ -1,7 +1,7 @@
 import {
-    Movies
+    Movie
 } from './user.entity'
 
 export {
-    Movies  
+    Movie  
 }

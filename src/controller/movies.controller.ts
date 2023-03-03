@@ -15,19 +15,7 @@ const listMoviesController =async (req: Request, res: Response): Promise<Respons
 
     const movies = await listMoviesService(req.query)
 
-    const perPage: number = req.query.perPage ? Number(req.query.perPage) : 5
-    const page: number = req.query.page ? Number(req.query.page) : 1
-
-    const sort: string = req.query.sort ? String(req.query.sort) : "id"
-    const order: string = req.query.order ? String(req.query.order) : "ASC"
-
-
-    return res.status(200).json({
-        prevPage: `localhost:3000/movies?page=${page - 1}&perPage=${perPage}&sort=${sort}&order=${order}`,
-        nextPage: `localhost:3000/movies?page=${page + 1}&perPage=${perPage}&sort=${sort}&order=${order}`,
-        count: perPage,
-        data: movies
-    })
+    return res.status(200).json(movies)
 }
 
 const updateMovieController =async (req: Request, res: Response): Promise<Response> => {

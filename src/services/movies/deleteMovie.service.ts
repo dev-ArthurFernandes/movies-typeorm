@@ -1,11 +1,11 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../data-source"
-import { Movies } from "../../entities"
+import { Movie } from "../../entities"
 
 
 const deleteMovieService =async (id: number): Promise<void> => {
     
-    const moviesRepository: Repository<Movies> = AppDataSource.getRepository(Movies)
+    const moviesRepository: Repository<Movie> = AppDataSource.getRepository(Movie)
 
     const movie = await moviesRepository.findOne({
         where: {
