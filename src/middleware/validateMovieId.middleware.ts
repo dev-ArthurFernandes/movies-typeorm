@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
-import { Movies } from "../entities";
+import { Movie } from "../entities";
 import { AppError } from "../errors";
 
 
 const validateMovieId =async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     
-    const moviesRepository: Repository<Movies> = AppDataSource.getRepository(Movies)
+    const moviesRepository: Repository<Movie> = AppDataSource.getRepository(Movie)
 
     const findId = await moviesRepository.findOne({
         where: {
@@ -16,7 +16,7 @@ const validateMovieId =async (req: Request, res: Response, next: NextFunction): 
     })
 
     if(!findId){
-        throw new AppError("Movie not found!", 404)
+        throw new AppError("Movie not found", 404)
     }
 
     return next()

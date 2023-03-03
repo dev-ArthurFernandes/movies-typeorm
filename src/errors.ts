@@ -1,4 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
+import { TypeORMError } from 'typeorm';
 import { ZodError } from 'zod';
 
 class AppError extends Error {
@@ -14,13 +15,24 @@ class AppError extends Error {
 const handleError = (err: Error, req: Request, res: Response, next: NextFunction): Response => {
 
     if(err instanceof AppError){
+        console.error(err)
         return res.status(err.statusCode).json({
             message: err.message
         })
     }
 
     if(err instanceof ZodError){
-        return res.status(400).json(err.flatten().fieldErrors)
+        console.log(err.flatten())
+        return res.status(400).json({
+            message: err.flatten().fieldErrors
+        })
+    }
+
+    if(err instanceof TypeORMError){
+        console.error(err)
+        return res.status(400).json({
+            message: err.message
+        })
     }
 
     console.error(err)

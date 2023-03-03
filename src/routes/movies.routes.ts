@@ -10,9 +10,9 @@ import { createMoviesSchemas, updateMoviesSchemas } from "../schemas";
 
 const moviesRoutes: Router = Router()
 
-moviesRoutes.post('', ensureEntreisValues(createMoviesSchemas), createMovieController)
+moviesRoutes.post('', ensureEntreisValues(createMoviesSchemas), validateMovieName, createMovieController)
 moviesRoutes.get('', listMoviesController)
-moviesRoutes.patch('/:id', ensureEntreisValues(updateMoviesSchemas), updateMovieController)
+moviesRoutes.patch('/:id', validateMovieId, validateMovieName, ensureEntreisValues(updateMoviesSchemas), updateMovieController)
 moviesRoutes.delete('/:id', validateMovieId, deleteMovieController)
 
 export default moviesRoutes
