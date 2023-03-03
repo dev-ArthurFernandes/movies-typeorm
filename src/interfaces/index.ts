@@ -2,12 +2,16 @@ import {
     IMoviesRequest,
     IMoviesResult,
     MoviesArray,
-    IMoviesUpdateRequest
+    IMoviesUpdateRequest,
+    iMovieRepo,
+    iMovieDeepPartial
 } from './movies.interfaces'
 
 export {
     IMoviesRequest,
     IMoviesResult,
     MoviesArray,
-    IMoviesUpdateRequest
+    IMoviesUpdateRequest,
+    iMovieRepo,
+    iMovieDeepPartial
 }

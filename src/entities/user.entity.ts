@@ -5,7 +5,7 @@ import {
 } from 'typeorm';
 
 @Entity('movies')
-class Movies{
+class Movie{
 
     @PrimaryGeneratedColumn()
     id: number
@@ -14,7 +14,7 @@ class Movies{
     name: string
 
     @Column({ type: 'text', nullable: true })
-    description?: string | undefined |  null
+    description: string |  null | undefined
 
     @Column()
     duration: number
@@ -25,6 +25,6 @@ class Movies{
 }
 
 export {
-    Movies
+    Movie
 }
 
